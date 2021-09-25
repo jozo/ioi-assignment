@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "ioi-assignment"
+version = "0.1.0"
+description = ""
+authors = ["jozo <hi@jozo.io>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ccxt = "^1.56.86"
+SQLAlchemy = "^1.4.25"
+gunicorn = "^20.1.0"
+aiohttp = {extras = ["speedups"], version = "^3.7.4"}
+ward = "^0.63.0-beta.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+isort = "^5.9.3"
+aiohttp-devtools = "^0.13.1"
+ward = "^0.63.0-beta.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
