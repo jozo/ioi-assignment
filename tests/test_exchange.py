@@ -9,10 +9,13 @@ from api.exchange import ExchangeService
 @test("Exchange can return BID price")
 async def _():
     exchange_mock = AsyncMock()
-    exchange_mock.fetch_ticker.return_value = {"bid": 4.2}
+    exchange_mock.fetch_ticker.return_value = {"bid": 4.2, "timestamp": 123456}
     service = ExchangeService(exchange_mock)
 
-    assert await service.bid("IOI") == 4.2
+    bid = await service.bid("IOI")
+
+    assert bid.value == 4.2
+    assert bid.timestamp == 123456
 
 
 @test("Exchange.bid() handles wrong currency")
